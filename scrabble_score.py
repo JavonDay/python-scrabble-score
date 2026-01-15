@@ -1,1 +1,40 @@
-<html><head></head><body style="overflow-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;"><div>letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]</div><div>points = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 4, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10]</div><div><br></div><div>letter_to_points = {</div><div>&nbsp; key: value</div><div>&nbsp; for key, value&nbsp;</div><div>&nbsp; in zip(letters, points)</div><div>}</div><div><br></div><div>letter_to_points[" "] = 0</div><div>print(letter_to_points)</div><div><br></div><div>def score_word(word):</div><div>&nbsp; point_total = 0</div><div>&nbsp; for letter in word:</div><div>&nbsp; &nbsp; point_total += letter_to_points.get(letter, 0)</div><div>&nbsp; return point_total</div><div><br></div><div>brownie_points = score_word("BROWNIE")</div><div>print(brownie_points)</div><div><br></div><div>player_to_words = {</div><div>&nbsp; "player1": ["BLUE", "TENNIS", "EXIT"],</div><div>&nbsp; "wordNerd": ["EARTH", "EYES", "MACHINE"],</div><div>&nbsp; "Lexi Con": ["ERASER", "BELLY", "HUSKY"],</div><div>&nbsp; "Prof Reader": ["ZAP", "COMA", "PERIOD"]</div><div>}</div><div><br></div><div>player_to_points = {}</div><div>for player, words in player_to_words.items():</div><div>&nbsp; player_points = 0</div><div>&nbsp; for word in words:</div><div>&nbsp; &nbsp; player_points += score_word(word)</div><div>&nbsp; player_to_points[player] = player_points</div><div>print(player_to_points)</div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div></body></html>
+letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+points = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 4, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10]
+
+letter_to_points = {
+  key: value
+  for key, value 
+  in zip(letters, points)
+}
+
+letter_to_points[" "] = 0
+print(letter_to_points)
+
+def score_word(word):
+  point_total = 0
+  for letter in word:
+    point_total += letter_to_points.get(letter, 0)
+  return point_total
+
+brownie_points = score_word("BROWNIE")
+print(brownie_points)
+
+player_to_words = {
+  "player1": ["BLUE", "TENNIS", "EXIT"],
+  "wordNerd": ["EARTH", "EYES", "MACHINE"],
+  "Lexi Con": ["ERASER", "BELLY", "HUSKY"],
+  "Prof Reader": ["ZAP", "COMA", "PERIOD"]
+}
+
+player_to_points = {}
+for player, words in player_to_words.items():
+  player_points = 0
+  for word in words:
+    player_points += score_word(word)
+  player_to_points[player] = player_points
+print(player_to_points)
+
+
+
+
+
